@@ -16,7 +16,6 @@ namespace ReservaCanchas_Maui.Models
         public string PasswordUsuario { get; set; }
         public TipoDeUsuario Tipo { get; set; }
         public List<int> ComplejosAdministrados { get; set; } = new List<int>();
-
     }
 
     public enum TipoDeUsuario
