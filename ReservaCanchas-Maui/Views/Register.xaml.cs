@@ -16,6 +16,14 @@ public partial class Register : ContentPage
         await Navigation.PushAsync(new MainPage());
     }
 
+    private void MostrarPasswordChanged(object sender, CheckedChangedEventArgs e)
+    {
+        bool isChecked = e.Value;
+
+        PasswordEntry.IsPassword = !isChecked;
+        ConfirmarPasswordEntry.IsPassword = !isChecked;
+    }
+
     private async void OnRegisterButtonClicked(object sender, EventArgs e)
     {
         // Validar que los campos no estén vacíos

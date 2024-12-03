@@ -27,24 +27,33 @@
             <!-- Formulario de Inicio de Sesión -->
             <VerticalStackLayout Spacing="15" Padding="0,30,0,0">
 
-                <!-- Campo de Usuario -->
-                <Entry Placeholder="Correo Electrónico"
+                <!-- Campo de Correo -->
+                <Entry x:Name="CorreoEntry"
+                       Placeholder="Correo Electrónico"
                        Keyboard="Email"
                        TextColor="#333"
                        PlaceholderColor="#999"
                        BackgroundColor="White"
                        HeightRequest="50"
-                      
                        Margin="0,0,0,10" />
 
                 <!-- Campo de Contraseña -->
-                <Entry Placeholder="Contraseña"
+                <Entry x:Name="PasswordEntry"
+                       Placeholder="Contraseña"
                        IsPassword="True"
                        TextColor="#333"
                        PlaceholderColor="#999"
                        BackgroundColor="White"
-                       HeightRequest="50"
-                        />
+                       HeightRequest="50" />
+
+                <!-- CheckBox para Mostrar Contraseña -->
+                <HorizontalStackLayout Spacing="10">
+                    <CheckBox x:Name="MostrarPasswordCheckBox" 
+                              CheckedChanged="MostrarPasswordChanged" />
+                    <Label Text="Mostrar Contraseña"
+                           VerticalOptions="Center"
+                           TextColor="#666" />
+                </HorizontalStackLayout>
 
                 <!-- Botón de Inicio de Sesión -->
                 <Button Text="Iniciar Sesión"
@@ -52,8 +61,8 @@
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="10"
-                        HeightRequest="50" />
-
+                        HeightRequest="50"
+                        Clicked="OnLoginButtonClicked" />
             </VerticalStackLayout>
 
             <!-- Opción de Registro -->

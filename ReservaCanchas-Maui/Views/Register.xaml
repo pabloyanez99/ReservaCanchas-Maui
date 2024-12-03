@@ -60,6 +60,15 @@
                        BackgroundColor="White"
                        HeightRequest="50" />
 
+                <!-- CheckBox para Mostrar Contraseña -->
+                <HorizontalStackLayout Spacing="10">
+                    <CheckBox x:Name="MostrarPassow" 
+                              CheckedChanged="MostrarPasswordChanged" />
+                    <Label Text="Mostrar Contraseña"
+                           VerticalOptions="Center"
+                           TextColor="#666" />
+                </HorizontalStackLayout>
+
                 <!-- Botón de Registro -->
                 <Button Text="Registrarme"
                         BackgroundColor="#4CAF50"
