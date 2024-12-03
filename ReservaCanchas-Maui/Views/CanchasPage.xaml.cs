@@ -23,4 +23,11 @@ public partial class CanchasPage : ContentPage
 		_canchas = _repository.ObtenerCanchasPorComplejo();
         CanchasCollection.ItemsSource = _canchas.Where(c => c.IdComplejo == _complejo.IdComplejo).ToList();
     }
+    private async void OnCanchaSelected(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is Cancha seleccionada)
+        {
+            await Navigation.PushAsync(new ReservasPage(seleccionada));
+        }
+    }
 }
