@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReservaCanchas_Maui.AdminViews.AddCancha"
+             Title="AddCancha">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Nombre de la Cancha" />
+            <Entry x:Name="NombreCanchaEntry" Placeholder="Introduce el nombre de la cancha" />
+
+            <Label Text="Número de Jugadores" />
+            <Entry x:Name="NumeroJugadoresEntry" Keyboard="Numeric" Placeholder="Máximo número de jugadores" />
+
+            <Label Text="Precio por Hora" />
+            <Entry x:Name="PrecioPorHoraEntry" Keyboard="Numeric" Placeholder="Introduce el precio por hora" />
+
+            <Label Text="Hora de Apertura" />
+            <TimePicker x:Name="HoraAperturaPicker" />
+
+            <Label Text="Hora de Cierre" />
+            <TimePicker x:Name="HoraCierrePicker" />
+
+            <Label Text="Imagen de la Cancha" />
+            <Entry x:Name="ImagenCanchaEntry" Placeholder="URL de la imagen de la cancha" />
+
+            <Button Text="Añadir Cancha" Clicked="OnAniadirCanchaClicked" />
+
+            <Button Text="Regresar" Clicked="OnRegresarClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

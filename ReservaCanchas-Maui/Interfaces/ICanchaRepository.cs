@@ -10,7 +10,7 @@ namespace ReservaCanchas_Maui.Interfaces
     public interface ICanchaRepository
     {
         List<Cancha> ObtenerTodasLasCanchas(); 
-        List<Cancha> ObtenerCanchasPorComplejo(int idComplejo); 
+        List<Cancha> ObtenerCanchasPorComplejo(); 
         Cancha ObtenerCanchaPorId(int idCancha); 
         void CrearCancha(Cancha cancha); 
         void ActualizarCancha(Cancha cancha); 
