@@ -23,42 +23,42 @@
             <VerticalStackLayout Spacing="15" Padding="0,30,0,0">
 
                 <!-- Campo de Nombre -->
-                <Entry Placeholder="Nombre Completo"
+                <Entry x:Name="NombreEntry"
+                       Placeholder="Nombre Completo"
                        TextColor="#333"
                        PlaceholderColor="#999"
                        BackgroundColor="White"
                        HeightRequest="50"
-                       
                        Margin="0,0,0,10" />
 
                 <!-- Campo de Correo -->
-                <Entry Placeholder="Correo Electrónico"
+                <Entry x:Name="CorreoEntry"
+                       Placeholder="Correo Electrónico"
                        Keyboard="Email"
                        TextColor="#333"
                        PlaceholderColor="#999"
                        BackgroundColor="White"
                        HeightRequest="50"
-                       
                        Margin="0,0,0,10" />
 
                 <!-- Campo de Contraseña -->
-                <Entry Placeholder="Contraseña"
+                <Entry x:Name="PasswordEntry"
+                       Placeholder="Contraseña"
                        IsPassword="True"
                        TextColor="#333"
                        PlaceholderColor="#999"
                        BackgroundColor="White"
                        HeightRequest="50"
-                       
                        Margin="0,0,0,10" />
 
                 <!-- Campo de Confirmar Contraseña -->
-                <Entry Placeholder="Confirmar Contraseña"
+                <Entry x:Name="ConfirmarPasswordEntry"
+                       Placeholder="Confirmar Contraseña"
                        IsPassword="True"
                        TextColor="#333"
                        PlaceholderColor="#999"
                        BackgroundColor="White"
-                       HeightRequest="50"
-                        />
+                       HeightRequest="50" />
 
                 <!-- Botón de Registro -->
                 <Button Text="Registrarme"
@@ -66,8 +66,8 @@
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="10"
-                        HeightRequest="50" />
-
+                        HeightRequest="50"
+                        Clicked="OnRegisterButtonClicked" />
             </VerticalStackLayout>
 
             <!-- Volver al Login -->
@@ -75,11 +75,11 @@
                 <Label Text="¿Ya tienes cuenta?"
                        FontSize="14"
                        TextColor="#666" />
-                <Label Text="Iniciar Sesion"
-           FontSize="14"
-           TextColor="#4CAF50"
-           FontAttributes="Bold"
-           TextDecorations="Underline">
+                <Label Text="Iniciar Sesión"
+                       FontSize="14"
+                       TextColor="#4CAF50"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnLoginTapped" />
                     </Label.GestureRecognizers>
