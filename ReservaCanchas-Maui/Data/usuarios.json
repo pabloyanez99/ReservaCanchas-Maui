@@ -1,1 +1,58 @@
-﻿[]
+﻿[
+  {
+    "IdUsuario": 1,
+    "NombreUsuario": "Joao Conde",
+    "CorreoUsuario": "joao.conde@udla.edu.ec",
+    "PasswordUsuario": "1234",
+    "Tipo": 2,
+    "ComplejosAdministrados": []
+  },
+  {
+    "IdUsuario": 2,
+    "NombreUsuario": "Victor",
+    "CorreoUsuario": "victor.suquilanda@udla.edu.ec",
+    "PasswordUsuario": "abcd",
+    "Tipo": 2,
+    "ComplejosAdministrados": []
+  },
+  {
+    "IdUsuario": 3,
+    "NombreUsuario": "Josu\u00E9 Riera",
+    "CorreoUsuario": "jouse.riera@udla.edu.ec",
+    "PasswordUsuario": "1234",
+    "Tipo": 2,
+    "ComplejosAdministrados": []
+  },
+  {
+    "IdUsuario": 4,
+    "NombreUsuario": "Pablo Yanez",
+    "CorreoUsuario": "pablo.yanez@udla.edu.ec",
+    "PasswordUsuario": "1234",
+    "Tipo": 2,
+    "ComplejosAdministrados": []
+  },
+  {
+    "IdUsuario": 5,
+    "NombreUsuario": "Cliente",
+    "CorreoUsuario": "cliente1@gmail.com",
+    "PasswordUsuario": "1234",
+    "Tipo": 0,
+    "ComplejosAdministrados": []
+  },
+  {
+    "IdUsuario": 6,
+    "NombreUsuario": "Administrador",
+    "CorreoUsuario": "admin1@gmail.com",
+    "PasswordUsuario": "1234",
+    "Tipo": 1,
+    "ComplejosAdministrados": []
+  },
+  {
+    "IdUsuario": 7,
+    "NombreUsuario": "Luis Valencia",
+    "CorreoUsuario": "leduvalar@gmail.com",
+    "PasswordUsuario": "1234",
+    "Tipo": 0,
+    "ComplejosAdministrados": []
+  }
+]
