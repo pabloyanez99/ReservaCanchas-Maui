@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReservaCanchas_Maui.Views.ReservasPage"
+             Title="ReservasPage">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <!-- Detalles de la Cancha -->
+            <Label Text="Detalles de la Cancha" FontSize="Large" FontAttributes="Bold" />
+            <Label Text="Nombre:" FontAttributes="Bold" />
+            <Label x:Name="NombreCanchaLabel" />
+
+            <Image x:Name="ImagenCanchaImage" HeightRequest="200" Aspect="AspectFill" />
+
+            <Label Text="Jugadores Máximos:" FontAttributes="Bold" />
+            <Label x:Name="NumeroJugadoresLabel" />
+
+            <Label Text="Horario Disponible:" FontAttributes="Bold" />
+            <Label x:Name="HorarioLabel" />
+
+            <Label Text="Precio por Hora:" FontAttributes="Bold" />
+            <Label x:Name="PrecioPorHoraLabel" />
+
+            <!-- Reservación -->
+            <Label Text="Reservar Cancha" FontSize="Large" FontAttributes="Bold" />
+
+            <Label Text="Usuario" />
+            <Entry x:Name="UsuarioEntry" Placeholder="Introduce tu nombre" />
+
+            <Label Text="Correo" />
+            <Entry x:Name="CorreoEntry" Placeholder="Introduce tu correo" Keyboard="Email" />
+
+            <Label Text="Fecha de Reservación" />
+            <DatePicker x:Name="FechaPicker" MinimumDate="{Binding FechaActual}" />
+
+            <Label Text="Hora de Inicio" />
+            <TimePicker x:Name="HoraInicioPicker" />
+
+            <Label Text="Hora de Fin" />
+            <TimePicker x:Name="HoraFinPicker" />
+
+            <Button Text="Confirmar Reservación" Clicked="OnConfirmarReservacionClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

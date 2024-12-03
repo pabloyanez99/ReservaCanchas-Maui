@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReservaCanchas_Maui.AdminViews.AddComplejo"
+             Title="AddComplejo">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Nombre del Complejo" />
+            <Entry x:Name="NombreComplejoEntry" Placeholder="Introduce el nombre" />
+
+            <Label Text="Imagen del Complejo" />
+            <Entry x:Name="ImagenComplejoEntry" Placeholder="URL de la imagen" />
+
+            <Label Text="ID del Administrador" />
+            <Entry x:Name="IdAdministradorEntry" Keyboard="Numeric" Placeholder="Introduce el ID del administrador" />
+
+            <Button Text="Añadir Canchas" Clicked="OnGestionarCanchasClicked" />
+
+            <Button Text="Guardar Complejo" Clicked="OnGuardarComplejoClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
