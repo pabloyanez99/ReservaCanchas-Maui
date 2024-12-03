@@ -8,6 +8,9 @@ namespace ReservaCanchas_Maui.Models
 {
     public class Complejo
     {
-
+        public string IdComplejo { get; set; }
+        public string NombreComplejo { get; set; }
+        public string ImagenComplejo { get; set; }
+        
     }
 }

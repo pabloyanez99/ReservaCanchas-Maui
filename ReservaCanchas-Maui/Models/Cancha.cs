@@ -8,6 +8,12 @@ namespace ReservaCanchas_Maui.Models
 {
     public class Cancha
     {
-
+        public string IdCancha { get; set; } 
+        public string NombreCancha { get; set; } 
+        public int NumeroJugadores { get; set; }
+        public decimal PrecioPorHora { get; set; }
+        public TimeSpan HoraApertura { get; set; } 
+        public TimeSpan HoraCierre { get; set; } 
+        public string ImagenCancha { get; set; } 
     }
 }
