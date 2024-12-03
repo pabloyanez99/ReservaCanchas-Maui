@@ -9,7 +9,7 @@ namespace ReservaCanchas_Maui
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new ComplejosPage());
+            MainPage = new AppShell();
         }
     }
 }

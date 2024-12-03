@@ -50,7 +50,10 @@ namespace ReservaCanchas_Maui.Repositories
                 _canchas = JsonSerializer.Deserialize<List<Cancha>>(contenidoJson) ?? new List<Cancha>();
                 return _canchas;
             }
-            throw new NotImplementedException();
+            else
+            {
+                return new List<Cancha>();
+            }
         }
 
         public List<Cancha> ObtenerTodasLasCanchas()

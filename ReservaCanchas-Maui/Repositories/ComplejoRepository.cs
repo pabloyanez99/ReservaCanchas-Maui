@@ -47,8 +47,11 @@ namespace ReservaCanchas_Maui.Repositories
                 string contenidoJson = File.ReadAllText(_fileName);
                 _complejos = JsonSerializer.Deserialize<List<Complejo>>(contenidoJson) ?? new List<Complejo>();
                 return _complejos;
+            } else
+            {
+                return new List<Complejo>();
             }
-            throw new NotImplementedException();
+            
         }
     }
 }

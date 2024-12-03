@@ -24,10 +24,10 @@
     </FlyoutItem>
 
     <FlyoutItem 
-    Title="Cerrar Sesión"
-    Icon="dotnet_bot.png">
+        Title="Cerrar Sesión"
+        Icon="dotnet_bot.png">
         <ShellContent
-        Title="Cerrar Sesión"/>
+            Title="Cerrar Sesión"/>
     </FlyoutItem>
 
 </Shell>
