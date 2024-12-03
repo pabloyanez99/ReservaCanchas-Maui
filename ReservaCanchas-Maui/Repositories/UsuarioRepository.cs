@@ -4,15 +4,46 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ReservaCanchas_Maui.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        public void CrearUsuario(Usuario usuario)
+        private readonly string _fileName = Path.Combine(AppContext.BaseDirectory, "Data", "usuarios.json");
+
+        // 
+        public UsuarioRepository()
         {
-            throw new NotImplementedException();
+            string directoryPath = Path.GetDirectoryName(_fileName);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+                Console.WriteLine($"Directorio creado: {directoryPath}");
+            }
+
+            Console.WriteLine($"Ruta completa del archivo JSON: {_fileName}");
+        }
+
+        public bool CrearUsuario(Usuario usuario)
+        {
+            List<Usuario> usuarios = ObtenerTodosLosUsuarios();
+
+            // Validar si el correo ya existe
+            if (usuarios.Any(u => u.CorreoUsuario.Equals(usuario.CorreoUsuario, StringComparison.OrdinalIgnoreCase)))
+            {
+                return false; 
+            }
+
+            usuario.IdUsuario = usuarios.Count > 0 ? usuarios.Max(u => u.IdUsuario) + 1 : 1;
+
+            usuarios.Add(usuario);
+
+            string contenidoJson = JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_fileName, contenidoJson);
+
+            return true; 
         }
 
         public void EliminarUsuario(int idUsuario)
@@ -22,12 +53,32 @@ namespace ReservaCanchas_Maui.Repositories
 
         public List<Usuario> ObtenerTodosLosUsuarios()
         {
-            throw new NotImplementedException();
+            if (!File.Exists(_fileName))
+            {
+                File.WriteAllText(_fileName, "[]");
+                return new List<Usuario>();
+            }
+
+            string contenidoJson = File.ReadAllText(_fileName);
+            return JsonSerializer.Deserialize<List<Usuario>>(contenidoJson) ?? new List<Usuario>();
         }
 
         public Usuario ObtenerUsuario(int idUsuario)
         {
-            throw new NotImplementedException();
+            List<Usuario> usuarios = ObtenerTodosLosUsuarios();
+            return usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+        }
+
+        public void ActualizarTipoDeUsuario(int idUsuario, TipoDeUsuario nuevoTipo)
+        {
+            List<Usuario> usuarios = ObtenerTodosLosUsuarios();
+            var usuario = usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+
+            if (usuario != null)
+            {
+                usuario.Tipo = nuevoTipo;
+                File.WriteAllText(_fileName, JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
+            }
         }
     }
 }
