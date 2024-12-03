@@ -49,8 +49,6 @@ public partial class ReservasPage : ContentPage
         _reserva = new Reserva()
         {
             IdReserva = new Random().Next(1, 1000),
-            Usuario = UsuarioEntry.Text,
-            Correo = CorreoEntry.Text,
             Fecha = FechaPicker.Date,
             HoraInicio = HoraInicioPicker.Time,
             HoraFin = HoraFinPicker.Time,
