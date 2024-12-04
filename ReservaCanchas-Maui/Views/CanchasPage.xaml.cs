@@ -22,6 +22,13 @@ public partial class CanchasPage : ContentPage
         CargarCanchas();
         GenerarBotonAdministrador();
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        CargarCanchas(); // Recarga las canchas cada vez que la página aparece
+    }
+
     private void CargarCanchas()
     {
 		_canchas = _repository.ObtenerTodasLasCanchas();
