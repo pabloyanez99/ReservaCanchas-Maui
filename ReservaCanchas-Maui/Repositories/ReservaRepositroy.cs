@@ -26,24 +26,40 @@ namespace ReservaCanchas_Maui.Repositories
         }
         public void CrearReserva(Reserva reserva)
         {
-            List<Reserva> reservas = new List<Reserva>();
-            List<Reserva> listaReservas= ObtenerTodasLasReservas();
+            List<Reserva> reservas = ObtenerTodasLasReservas();
 
-            if (File.Exists(_fileName))
-            {
-                var contenido = File.ReadAllText(_fileName);
-                reservas = JsonSerializer.Deserialize<List<Reserva>>(contenido) ?? new List<Reserva>();
-            }
+            // Incrementar el ID de la reserva
+            reserva.IdReserva = reservas.Count > 0 ? reservas.Max(r => r.IdReserva) + 1 : 1;
 
-            reserva.IdCancha = listaReservas.Count > 0 ? listaReservas.Max(c => c.IdCancha) + 1 : 1;
+            // Agregar la nueva reserva a la lista
             reservas.Add(reserva);
+
+            // Guardar las reservas en el archivo JSON
             File.WriteAllText(_fileName, JsonSerializer.Serialize(reservas, new JsonSerializerOptions { WriteIndented = true }));
         }
 
+
         public bool EstaDisponible(int idCancha, DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin)
         {
-            throw new NotImplementedException();
+            var reservas = ObtenerTodasLasReservas();
+
+            foreach (var reserva in reservas)
+            {
+                // Verificar si es la misma cancha y misma fecha
+                if (reserva.IdCancha == idCancha && reserva.Fecha.Date == fecha.Date)
+                {
+                    // Verificar superposición de horarios
+                    if ((horaInicio < reserva.HoraFin && horaFin > reserva.HoraInicio) ||
+                        (horaInicio == reserva.HoraInicio && horaFin == reserva.HoraFin))
+                    {
+                        return false; // Hay una reserva que se superpone
+                    }
+                }
+            }
+
+            return true; // No hay superposición
         }
+
 
         public List<Reserva> ObtenerTodasLasReservas()
         {

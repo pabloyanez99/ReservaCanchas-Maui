@@ -15,7 +15,8 @@ public partial class ReservasPage : ContentPage
         _repository = new ReservaRepositroy();
 		_cancha = cancha;
         _usuario = usuario;
-		BindingContext = this;
+        FechaPicker.MinimumDate = DateTime.Now.Date;
+        BindingContext = this;
         MostrarDetallesCancha();
 
 	}
@@ -35,16 +36,22 @@ public partial class ReservasPage : ContentPage
         HoraInicioPicker.Time = _cancha.HoraApertura;
         HoraFinPicker.Time = _cancha.HoraCierre;
     }
+
     private async void OnConfirmarReservacionClicked(object sender, EventArgs e)
     {
-
         if (HoraInicioPicker.Time < _cancha.HoraApertura || HoraFinPicker.Time > _cancha.HoraCierre || HoraInicioPicker.Time >= HoraFinPicker.Time)
         {
             await DisplayAlert("Error", "El horario seleccionado no es válido.", "Aceptar");
             return;
         }
 
-        // Guardar la reservación
+        if (!_repository.EstaDisponible(_cancha.IdCancha, FechaPicker.Date, HoraInicioPicker.Time, HoraFinPicker.Time))
+        {
+            await DisplayAlert("Error", "El horario seleccionado ya está reservado.", "Aceptar");
+            return;
+        }
+
+        // Crear la reserva
         _reserva = new Reserva()
         {
             IdUsuario = _usuario.IdUsuario,
@@ -54,9 +61,11 @@ public partial class ReservasPage : ContentPage
             IdCancha = _cancha.IdCancha
         };
 
+        // Guardar la reserva
         _repository.CrearReserva(_reserva);
 
         await DisplayAlert("Éxito", "Reservación confirmada.", "Aceptar");
         await Navigation.PopAsync();
     }
+
 }
