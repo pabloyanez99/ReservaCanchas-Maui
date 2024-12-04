@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReservaCanchas_Maui.Views.ComplejosPage"
              Title="ComplejosPage">
-    <CollectionView x:Name="ComplejosCollection" SelectionMode="Single" SelectionChanged="OnComplejoSelected">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout Padding="10" Orientation="Horizontal">
-                    <Image Source="{Binding ImagenComplejo}" WidthRequest="50" HeightRequest="50" />
-                    <Label Text="{Binding NombreComplejo}" VerticalOptions="Center" Margin="10,0,0,0" />
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <StackLayout x:Name="Complejitos" Padding="20">
+        <CollectionView x:Name="ComplejosCollection" SelectionMode="Single" SelectionChanged="OnComplejoSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" Orientation="Horizontal">
+                        <Image Source="{Binding ImagenComplejo}" WidthRequest="50" HeightRequest="50" />
+                        <Label Text="{Binding NombreComplejo}" VerticalOptions="Center" Margin="10,0,0,0" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

@@ -1,1 +1,23 @@
-﻿[]
+﻿[
+  {
+    "IdComplejo": 1,
+    "NombreComplejo": "Complejos BetiPonPon",
+    "ImagenComplejo": "https://www.erp-spain.com/img/articles/76775/DC9E86BE-AC01-4FD1-B1B8-132E5F5FC2F1.jpeg",
+    "Canchas": [],
+    "IdAdministrador": 23
+  },
+  {
+    "IdComplejo": 2,
+    "NombreComplejo": "Complejos QuieroMorirme",
+    "ImagenComplejo": "https://www.debatesiesa.com/debatesweb/wp-content/uploads/2023/05/Gonzalez-Lorenzo-Imagen-3.jpg",
+    "Canchas": [],
+    "IdAdministrador": 32
+  },
+  {
+    "IdComplejo": 3,
+    "NombreComplejo": "Complejos TengoHambre",
+    "ImagenComplejo": "https://www.observatorioreconstruccion.cl/images/uploads/complejo-deportivo.jpg",
+    "Canchas": [],
+    "IdAdministrador": 36
+  }
+]

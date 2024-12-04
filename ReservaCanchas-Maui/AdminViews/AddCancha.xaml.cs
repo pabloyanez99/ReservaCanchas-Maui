@@ -18,7 +18,6 @@ public partial class AddCancha : ContentPage
 	{
 		_cancha = new Cancha()
 		{
-            IdCancha = new Random().Next(1, 1000), // Generación automática del ID
             NombreCancha = NombreCanchaEntry.Text,
             NumeroJugadores = int.TryParse(NumeroJugadoresEntry.Text, out int jugadores) ? jugadores : 0,
             PrecioPorHora = decimal.TryParse(PrecioPorHoraEntry.Text, out decimal precio) ? precio : 0,

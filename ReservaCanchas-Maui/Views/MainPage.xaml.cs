@@ -1,6 +1,6 @@
 ﻿using ReservaCanchas_Maui.Repositories;
 
-namespace ReservaCanchas_Maui;
+namespace ReservaCanchas_Maui.Views;
 
 public partial class MainPage : ContentPage
 {
@@ -38,7 +38,7 @@ public partial class MainPage : ContentPage
 
         await DisplayAlert("Éxito", $"¡Bienvenido {usuario.NombreUsuario}!", "OK");
 
-        await Navigation.PushAsync(new Views.ComplejosPage());
+        await Navigation.PushAsync(new Views.ComplejosPage(usuario));
     }
 
     private async void OnRegisterTapped(object sender, EventArgs e)
