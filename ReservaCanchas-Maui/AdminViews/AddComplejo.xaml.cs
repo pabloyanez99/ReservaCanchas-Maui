@@ -7,6 +7,7 @@ public partial class AddComplejo : ContentPage
 {
     public ComplejoRepository _repository;
     public Complejo _complejo;
+    public Usuario _usuario;
     public AddComplejo()
 	{
 		InitializeComponent();
@@ -21,7 +22,6 @@ public partial class AddComplejo : ContentPage
     private async void OnGuardarComplejoClicked(object sender, EventArgs e)
     {
         // Asignar los datos ingresados
-        _complejo.IdComplejo = new Random().Next(1, 1000); // Generación automática del ID
         _complejo.NombreComplejo = NombreComplejoEntry.Text;
         _complejo.ImagenComplejo = ImagenComplejoEntry.Text;
         _complejo.IdAdministrador = int.TryParse(IdAdministradorEntry.Text, out int idAdmin) ? idAdmin : 0;

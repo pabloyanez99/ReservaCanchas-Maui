@@ -24,11 +24,11 @@
             <!-- Reservación -->
             <Label Text="Reservar Cancha" FontSize="Large" FontAttributes="Bold" />
 
-            <Label Text="Usuario" />
-            <Entry x:Name="UsuarioEntry" Placeholder="Introduce tu nombre" />
+            <Label Text="Nombre de Usuario:" FontAttributes="Bold" />
+            <Label x:Name="UsuarioName" />
 
-            <Label Text="Correo" />
-            <Entry x:Name="CorreoEntry" Placeholder="Introduce tu correo" Keyboard="Email" />
+            <Label Text="Correo:" FontAttributes="Bold"/>
+            <Label x:Name="UsuarioCorreo" />
 
             <Label Text="Fecha de Reservación" />
             <DatePicker x:Name="FechaPicker" MinimumDate="{Binding FechaActual}" />

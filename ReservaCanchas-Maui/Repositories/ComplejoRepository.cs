@@ -11,8 +11,18 @@ namespace ReservaCanchas_Maui.Repositories
 {
     public class ComplejoRepository : IComplejoRepository
     {
-        public string _fileName = Path.Combine(FileSystem.AppDataDirectory, "complejos.json");
+        public string _fileName = Path.Combine(AppContext.BaseDirectory,"Data", "complejos.json");
+        public ComplejoRepository() 
+        {
+            string directoryPath = Path.GetDirectoryName(_fileName);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+                Console.WriteLine($"Directorio creado: {directoryPath}");
+            }
 
+            Console.WriteLine($"Ruta completa del archivo JSON: {_fileName}");
+        }
         public Complejo ObtenerComplejo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void ActualizarComplejo(Complejo complejo)
@@ -22,15 +32,19 @@ namespace ReservaCanchas_Maui.Repositories
 
         public void CrearComplejo(Complejo complejo)
         {
-            List<Complejo> listaComplejos = new List<Complejo>();
+            List<Complejo> complejos = new List<Complejo>();
+            List<Complejo> listaComplejos = ObtenerTodosLosComplejos();
+
             if (File.Exists(_fileName))
             {
                 var contenido = File.ReadAllText(_fileName);
-                listaComplejos = JsonSerializer.Deserialize<List<Complejo>>(contenido) ?? new List<Complejo>();
+                complejos = JsonSerializer.Deserialize<List<Complejo>>(contenido) ?? new List<Complejo>();
             }
 
-            listaComplejos.Add(complejo);
-            File.WriteAllText(_fileName, JsonSerializer.Serialize(listaComplejos, new JsonSerializerOptions { WriteIndented = true }));
+            complejo.IdComplejo = listaComplejos.Count > 0 ? listaComplejos.Max(c => c.IdComplejo) + 1 : 1;
+
+            complejos.Add(complejo);
+            File.WriteAllText(_fileName, JsonSerializer.Serialize(complejos, new JsonSerializerOptions { WriteIndented = true }));
             
         }
 

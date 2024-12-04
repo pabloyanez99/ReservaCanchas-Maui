@@ -1,7 +1,7 @@
 using ReservaCanchas_Maui.Models;
 using ReservaCanchas_Maui.Repositories;
 
-namespace ReservaCanchas_Maui;
+namespace ReservaCanchas_Maui.Views;
 
 public partial class Register : ContentPage
 {
