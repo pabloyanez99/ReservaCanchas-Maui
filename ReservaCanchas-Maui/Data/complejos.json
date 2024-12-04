@@ -18,7 +18,7 @@
     "NombreComplejo": "Complejos TengoHambre",
     "ImagenComplejo": "https://www.observatorioreconstruccion.cl/images/uploads/complejo-deportivo.jpg",
     "Canchas": [],
-    "IdAdministrador": 36
+    "IdAdministrador": 6
   },
   {
     "IdComplejo": 4,
@@ -29,20 +29,13 @@
   },
   {
     "IdComplejo": 5,
-    "NombreComplejo": "Aguas Calientes",
-    "ImagenComplejo": "https://imagenes.expreso.ec/files/og_thumbnail/uploads/2021/05/20/60a6fd34d49fe.jpeg",
-    "Canchas": [],
-    "IdAdministrador": 4
-  },
-  {
-    "IdComplejo": 6,
     "NombreComplejo": "Complejo RHCP",
     "ImagenComplejo": "https://recreasport.com/wp-content/uploads/2017/04/SAM_0191-2.jpg",
     "Canchas": [],
     "IdAdministrador": 4
   },
   {
-    "IdComplejo": 7,
+    "IdComplejo": 6,
     "NombreComplejo": "Complejo Nine",
     "ImagenComplejo": "https://www.elclasicofutbol5.com/wp-content/uploads/2015/06/cancha-dimensiones-futbol.jpg",
     "Canchas": [],

@@ -1,1 +1,42 @@
-﻿[]
+﻿[
+  {
+    "IdCancha": 1,
+    "NombreCancha": "Cancha 1",
+    "NumeroJugadores": 12,
+    "PrecioPorHora": 12,
+    "HoraApertura": "18:00:00",
+    "HoraCierre": "23:00:00",
+    "ImagenCancha": null,
+    "IdComplejo": 6
+  },
+  {
+    "IdCancha": 2,
+    "NombreCancha": "Cancha Basket",
+    "NumeroJugadores": 10,
+    "PrecioPorHora": 20,
+    "HoraApertura": "16:00:00",
+    "HoraCierre": "22:00:00",
+    "ImagenCancha": null,
+    "IdComplejo": 6
+  },
+  {
+    "IdCancha": 3,
+    "NombreCancha": "Cancha 3",
+    "NumeroJugadores": 22,
+    "PrecioPorHora": 50,
+    "HoraApertura": "08:00:00",
+    "HoraCierre": "18:00:00",
+    "ImagenCancha": null,
+    "IdComplejo": 4
+  },
+  {
+    "IdCancha": 4,
+    "NombreCancha": "Cancha 4",
+    "NumeroJugadores": 14,
+    "PrecioPorHora": 35,
+    "HoraApertura": "14:00:00",
+    "HoraCierre": "21:00:00",
+    "ImagenCancha": null,
+    "IdComplejo": 4
+  }
+]

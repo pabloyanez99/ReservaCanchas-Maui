@@ -12,7 +12,7 @@
             <Entry x:Name="ImagenComplejoEntry" Placeholder="Introduce la nueva URL de la imagen" />
 
             <Button Text="Guardar Cambios" Clicked="OnGuardarCambiosClicked" />
-            <Button Text="Aniadir Cancha" Clicked="OnAniadirCanchaClicked" />
+            <Button Text="Añadir Cancha" Clicked="OnAniadirCanchaClicked" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

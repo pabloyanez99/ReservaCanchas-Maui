@@ -20,7 +20,7 @@
     "NombreUsuario": "Josu\u00E9 Riera",
     "CorreoUsuario": "jouse.riera@udla.edu.ec",
     "PasswordUsuario": "1234",
-    "Tipo": 1,
+    "Tipo": 2,
     "ComplejosAdministrados": []
   },
   {
@@ -39,7 +39,7 @@
     "NombreUsuario": "Cliente",
     "CorreoUsuario": "cliente1@gmail.com",
     "PasswordUsuario": "1234",
-    "Tipo": 1,
+    "Tipo": 0,
     "ComplejosAdministrados": []
   },
   {
