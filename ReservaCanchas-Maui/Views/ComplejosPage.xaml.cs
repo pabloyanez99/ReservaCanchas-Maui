@@ -17,7 +17,7 @@ public partial class ComplejosPage : ContentPage
         _usuario = usuario;
         CargarComplejos();
         GenerarBotonSuperUsuario();
-
+        GenerarBotonSuperUsuario2();
     }
     private void CargarComplejos()
     {
@@ -49,9 +49,31 @@ public partial class ComplejosPage : ContentPage
             Complejitos.Children.Add(botonSuperusuario);
         }
     }
+    private void GenerarBotonSuperUsuario2()
+    {
+        // Botón específico para superusuarios
+        if (_usuario.Tipo == TipoDeUsuario.Superusuario)
+        {
+            var botonSuperusuario = new Button
+            {
+                Text = "Gestionar Usuario",
+                BackgroundColor = Colors.Purple,
+                TextColor = Colors.White,
+                Margin = new Thickness(0, 10),
+            };
+
+            botonSuperusuario.Clicked += GestionUsuerr;
+
+            Complejitos.Children.Add(botonSuperusuario);
+        }
+    }
 
     private async void OnAdministracionComplejoSuperUser(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new AddComplejo());
+    }
+    private async void GestionUsuerr(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new GestionarUsers());
     }
 }
