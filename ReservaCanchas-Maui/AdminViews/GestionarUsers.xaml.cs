@@ -23,26 +23,45 @@ namespace ReservaCanchas_Maui.AdminViews
             BindingContext = this;
         }
 
-        private void EliminarUsuario(int idUsuario)
+        private async void EliminarUsuario(int idUsuario)
         {
             try
             {
-                // Llama al repositorio para eliminar el usuario
-                _usuarioRepository.EliminarUsuario(idUsuario);
+                // Mostrar alerta de confirmación
+                bool confirmacion = await DisplayAlert(
+                    "Confirmación",
+                    "¿Estás seguro de que deseas eliminar este usuario?",
+                    "Sí",
+                    "No"
+                );
 
-                // Elimina de la colección observable
-                var usuario = Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
-                if (usuario != null)
+                // Si el usuario confirma, procede con la eliminación
+                if (confirmacion)
                 {
-                    Usuarios.Remove(usuario);
+                    // Llama al repositorio para eliminar el usuario
+                    _usuarioRepository.EliminarUsuario(idUsuario);
+
+                    // Elimina de la colección observable
+                    var usuario = Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+                    if (usuario != null)
+                    {
+                        Usuarios.Remove(usuario);
+                    }
+
+                    // Opcional: Mostrar mensaje de éxito
+                    await DisplayAlert("Éxito", "Usuario eliminado correctamente.", "OK");
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al eliminar usuario: {ex.Message}");
                 Console.WriteLine(ex.StackTrace);
+
+                // Mostrar mensaje de error
+                await DisplayAlert("Error", "Ocurrió un error al intentar eliminar el usuario.", "OK");
             }
         }
+
 
     }
 }
