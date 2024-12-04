@@ -25,11 +25,14 @@
                         <!-- Nombre del Usuario -->
                         <Label Text="{Binding CorreoUsuario}" 
                                VerticalOptions="Center"
+                               HorizontalOptions="Start"
                                TextColor="White" />
                         <!-- Botón para eliminar -->
                         <Button Text="❌" 
                                 BackgroundColor="Transparent" 
                                 TextColor="Red"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
                                 Command="{Binding Source={x:Reference UsuariosCollectionView}, Path=BindingContext.EliminarUsuarioCommand}"
                                 CommandParameter="{Binding IdUsuario}" />
                     </Grid>
