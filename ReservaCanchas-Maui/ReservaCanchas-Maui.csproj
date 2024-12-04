@@ -91,6 +91,9 @@
 	  <MauiXaml Update="AdminViews\AddComplejo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="AdminViews\GestionarCancha.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="AdminViews\GestionarComplejo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

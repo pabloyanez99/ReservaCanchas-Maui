@@ -1,25 +1,30 @@
 using ReservaCanchas_Maui.Models;
 using ReservaCanchas_Maui.Repositories;
+using ReservaCanchas_Maui.AdminViews;
 
 namespace ReservaCanchas_Maui.Views;
 
 public partial class ReservasPage : ContentPage
 {
     public Usuario _usuario;
+    public Complejo _complejo;
 	public Cancha _cancha;
 	public ReservaRepositroy _repository;
     public Reserva _reserva;
-	public ReservasPage(Cancha cancha, Usuario usuario)
+	public ReservasPage(Cancha cancha, Usuario usuario, Complejo complejo)
 	{
 		InitializeComponent();
         _repository = new ReservaRepositroy();
 		_cancha = cancha;
         _usuario = usuario;
+        _complejo = complejo;
         FechaPicker.MinimumDate = DateTime.Now.Date;
         BindingContext = this;
         MostrarDetallesCancha();
+        GenerarBotonCanchaAdministrador();
 
-	}
+
+    }
     private void MostrarDetallesCancha()
     {
         // Cargar detalles de la cancha
@@ -66,6 +71,30 @@ public partial class ReservasPage : ContentPage
 
         await DisplayAlert("Éxito", "Reservación confirmada.", "Aceptar");
         await Navigation.PopAsync();
+    }
+    private void GenerarBotonCanchaAdministrador()
+    {
+        // Botón específico para adminstrador
+        if (_usuario.Tipo == TipoDeUsuario.Administrador &&
+            _cancha.IdComplejo == _complejo.IdComplejo &&
+            _usuario.ComplejosAdministrados.Contains(_complejo.IdComplejo))
+        {
+            var botonCanchaAdmin = new Button
+            {
+                Text = "Gestionar Cancha",
+                BackgroundColor = Colors.Purple,
+                TextColor = Colors.White,
+                Margin = new Thickness(0, 10),
+            };
+
+            botonCanchaAdmin.Clicked += OnAdministracionCanchaAdmin;
+
+            ReservasDetails.Children.Add(botonCanchaAdmin);
+        }
+    }
+    private async void OnAdministracionCanchaAdmin(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new GestionarCancha());
     }
 
 }
