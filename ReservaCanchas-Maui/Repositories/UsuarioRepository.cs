@@ -48,8 +48,37 @@ namespace ReservaCanchas_Maui.Repositories
 
         public void EliminarUsuario(int idUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (File.Exists(_fileName))
+                {
+                    string contenidoJson = File.ReadAllText(_fileName);
+                    var usuarios = JsonSerializer.Deserialize<List<Usuario>>(contenidoJson) ?? new List<Usuario>();
+
+                    var usuarioAEliminar = usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+                    if (usuarioAEliminar != null)
+                    {
+                        usuarios.Remove(usuarioAEliminar);
+                        File.WriteAllText(_fileName, JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Usuario con ID {idUsuario} no encontrado.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El archivo JSON no existe.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en EliminarUsuario: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
+                throw; // Re-lanzar para propagar el error si es necesario
+            }
         }
+
         public void ActualizarUsuario(Usuario usuarioActualizado)
         {
             if (File.Exists(_fileName))
@@ -100,5 +129,7 @@ namespace ReservaCanchas_Maui.Repositories
                 File.WriteAllText(_fileName, JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
             }
         }
+
+
     }
 }

@@ -2,11 +2,39 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReservaCanchas_Maui.AdminViews.GestionarUsers"
-             Title="GestionarUsers">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Gestionar Usuarios"
+             BackgroundColor="Black">
+    <VerticalStackLayout Padding="10">
+        <Label Text="Gestionar Usuarios" 
+               FontSize="24" 
+               TextColor="White"
+               HorizontalOptions="Center" 
+               Margin="0,0,0,20" />
+
+        <!-- CollectionView para mostrar los usuarios -->
+        <CollectionView x:Name="UsuariosCollectionView"
+                        ItemsSource="{Binding Usuarios}"
+                        BackgroundColor="Transparent"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5" 
+                          ColumnDefinitions="*,Auto" 
+                          BackgroundColor="#333333"
+                          Margin="0,0,0,10">
+                        <!-- Nombre del Usuario -->
+                        <Label Text="{Binding CorreoUsuario}" 
+                               VerticalOptions="Center"
+                               TextColor="White" />
+                        <!-- Botón para eliminar -->
+                        <Button Text="❌" 
+                                BackgroundColor="Transparent" 
+                                TextColor="Red"
+                                Command="{Binding Source={x:Reference UsuariosCollectionView}, Path=BindingContext.EliminarUsuarioCommand}"
+                                CommandParameter="{Binding IdUsuario}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
