@@ -38,7 +38,7 @@ public partial class CanchasPage : ContentPage
     {
         if (e.CurrentSelection.FirstOrDefault() is Cancha seleccionada)
         {
-            await Navigation.PushAsync(new ReservasPage(seleccionada, _usuario));
+            await Navigation.PushAsync(new ReservasPage(seleccionada, _usuario, _complejo));
         }
     }
     private void GenerarBotonAdministrador()
