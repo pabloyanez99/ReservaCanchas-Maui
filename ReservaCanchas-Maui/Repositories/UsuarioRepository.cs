@@ -50,6 +50,26 @@ namespace ReservaCanchas_Maui.Repositories
         {
             throw new NotImplementedException();
         }
+        public void ActualizarUsuario(Usuario usuarioActualizado)
+        {
+            if (File.Exists(_fileName))
+            {
+                // Leer el archivo JSON existente
+                string contenidoJson = File.ReadAllText(_fileName);
+                var usuarios = JsonSerializer.Deserialize<List<Usuario>>(contenidoJson) ?? new List<Usuario>();
+
+                // Encontrar y actualizar el usuario correspondiente
+                var usuarioExistente = usuarios.FirstOrDefault(u => u.IdUsuario == usuarioActualizado.IdUsuario);
+                if (usuarioExistente != null)
+                {
+                    usuarioExistente.ComplejosAdministrados = usuarioActualizado.ComplejosAdministrados;
+                }
+
+                // Guardar los cambios de nuevo en el archivo JSON
+                string nuevoJson = JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(_fileName, nuevoJson);
+            }
+        }
 
         public List<Usuario> ObtenerTodosLosUsuarios()
         {

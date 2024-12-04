@@ -11,10 +11,9 @@
             <Label Text="Imagen del Complejo" />
             <Entry x:Name="ImagenComplejoEntry" Placeholder="URL de la imagen" />
 
-            <Label Text="ID del Administrador" />
-            <Entry x:Name="IdAdministradorEntry" Keyboard="Numeric" Placeholder="Introduce el ID del administrador" />
-
-            <Button Text="Añadir Canchas" Clicked="OnGestionarCanchasClicked" />
+            <Label Text="Selecciona un Administrador" />
+            <Picker x:Name="AdministradorPicker" Title="Seleccione un administrador"
+                    ItemDisplayBinding="{Binding NombreUsuario}" />
 
             <Button Text="Guardar Complejo" Clicked="OnGuardarComplejoClicked" />
         </StackLayout>

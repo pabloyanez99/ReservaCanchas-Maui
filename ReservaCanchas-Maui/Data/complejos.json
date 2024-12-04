@@ -19,5 +19,33 @@
     "ImagenComplejo": "https://www.observatorioreconstruccion.cl/images/uploads/complejo-deportivo.jpg",
     "Canchas": [],
     "IdAdministrador": 36
+  },
+  {
+    "IdComplejo": 4,
+    "NombreComplejo": "Salve Oh Patria Mil Veces Oh Patria",
+    "ImagenComplejo": "https://civideportes.com.co/wp-content/uploads/2019/08/Cancha-de-f%C3%BAtbol-11.jpg",
+    "Canchas": [],
+    "IdAdministrador": 6
+  },
+  {
+    "IdComplejo": 5,
+    "NombreComplejo": "Aguas Calientes",
+    "ImagenComplejo": "https://imagenes.expreso.ec/files/og_thumbnail/uploads/2021/05/20/60a6fd34d49fe.jpeg",
+    "Canchas": [],
+    "IdAdministrador": 4
+  },
+  {
+    "IdComplejo": 6,
+    "NombreComplejo": "Complejo RHCP",
+    "ImagenComplejo": "https://recreasport.com/wp-content/uploads/2017/04/SAM_0191-2.jpg",
+    "Canchas": [],
+    "IdAdministrador": 4
+  },
+  {
+    "IdComplejo": 7,
+    "NombreComplejo": "Complejo Nine",
+    "ImagenComplejo": "https://www.elclasicofutbol5.com/wp-content/uploads/2015/06/cancha-dimensiones-futbol.jpg",
+    "Canchas": [],
+    "IdAdministrador": 4
   }
 ]
