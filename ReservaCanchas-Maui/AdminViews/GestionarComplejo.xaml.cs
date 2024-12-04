@@ -35,6 +35,7 @@ public partial class GestionarComplejo : ContentPage
         _repository.ActualizarComplejo(_complejo);
 
         await DisplayAlert("Éxito", "Los datos del complejo se han actualizado correctamente.", "OK");
+        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         await Navigation.PopAsync();
     }
     private async void OnAniadirCanchaClicked(object sender, EventArgs e)

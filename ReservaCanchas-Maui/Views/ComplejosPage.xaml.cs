@@ -68,6 +68,12 @@ public partial class ComplejosPage : ContentPage
         }
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        CargarComplejos();
+    }
+
     private async void OnAdministracionComplejoSuperUser(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new AddComplejo());
