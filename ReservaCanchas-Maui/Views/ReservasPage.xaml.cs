@@ -22,8 +22,6 @@ public partial class ReservasPage : ContentPage
         BindingContext = this;
         MostrarDetallesCancha();
         GenerarBotonCanchaAdministrador();
-
-
     }
     private void MostrarDetallesCancha()
     {
@@ -74,7 +72,7 @@ public partial class ReservasPage : ContentPage
     }
     private void GenerarBotonCanchaAdministrador()
     {
-        // Botón específico para adminstrador
+        // Verificar si el usuario es administrador y si puede gestionar la cancha
         if (_usuario.Tipo == TipoDeUsuario.Administrador &&
             _cancha.IdComplejo == _complejo.IdComplejo &&
             _usuario.ComplejosAdministrados.Contains(_complejo.IdComplejo))
@@ -89,9 +87,11 @@ public partial class ReservasPage : ContentPage
 
             botonCanchaAdmin.Clicked += OnAdministracionCanchaAdmin;
 
-            ReservasDetails.Children.Add(botonCanchaAdmin);
+            // Añadir el botón al StackLayout directamente
+            ReservasStackLayout.Children.Add(botonCanchaAdmin);
         }
     }
+
     private async void OnAdministracionCanchaAdmin(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new GestionarCancha());
